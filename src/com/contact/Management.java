@@ -6,8 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Management {
     public void addnewContact(Contact contact) throws Exception{
@@ -32,20 +30,19 @@ public class Management {
         }
     }
 
-    public Contact getContactById(int id) throws Exception {
+    public Contact getContactByName(String name) throws Exception {
 
         Contact ct = null;
 
         try {
             Connection conn =  DBConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(
-                    "SELECT Id, Name, Company, Email,Phone FROM contacts WHERE Id = ?");
-            pstmt.setInt(1, id);
+                    "SELECT * FROM contacts WHERE name = ?");
+            pstmt.setString(1, name);
 
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()) {
                 ct = new Contact(
-                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),

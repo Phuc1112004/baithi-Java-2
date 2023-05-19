@@ -3,7 +3,7 @@ package com.contact;
 import java.util.Scanner;
 
 public class Contact {
-     int id;
+    int id;
     private String name;
     private String company;
     private String email;
@@ -22,10 +22,10 @@ public class Contact {
 
     public Contact(int id, String name, String company, String email, String phone) {
         this.id = id;
-        this.name=name;
-        this.company=company;
-        this.email=email;
-        this.phone= phone;
+        this.name = name;
+        this.company = company;
+        this.email = email;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -60,7 +60,7 @@ public class Contact {
         this.phone = phone;
     }
 
-    public void inputData(){
+    public void inputData() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Name:");
         this.name = input.nextLine();
@@ -80,6 +80,4 @@ public class Contact {
                 ", phone='" + phone + '\'' +
                 '}';
     }
-
-
 }
